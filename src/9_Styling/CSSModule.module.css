@@ -1,0 +1,19 @@
+/* CSS Module 은 컴포넌트 내부에서만 작동. 고유성 고민 X */
+
+.wrapper {
+    background: black;
+    padding: 1rem;
+    color : white;
+    font-size: 2rem;
+}
+
+.inverted {
+    color : black;
+    background: white;
+    border: 1px solid black;
+}
+
+:global .something {
+    font-weight: 800;
+    color: aqua;
+}
