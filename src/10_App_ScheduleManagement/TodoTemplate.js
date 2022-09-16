@@ -1,3 +1,5 @@
+import './TodoTemplate.css'
+
 const TodoTemplate = ({children}) => {
     return (
         <div className="TodoTemplate">
