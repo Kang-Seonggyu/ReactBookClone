@@ -5,6 +5,9 @@ import Profile from "./Profile";
 import Articles from "./Articles";
 import Article from "./Article";
 import Layout from "./Layout";
+import NotFound from "./NotFound";
+import MyPage from "./MyPage";
+import Login from "./Login";
 
 const App_for13 = () => {
     return (
@@ -17,7 +20,9 @@ const App_for13 = () => {
             <Route path="/articles" element={<Articles /> }>
                 <Route path=":id" element={<Article /> } />
             </Route>
-
+            <Route path="/login" element={<Login />} />
+            <Route path="/mypage" element={<MyPage />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 };
