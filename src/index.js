@@ -10,13 +10,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './10_App_ScheduleManagement/index_for10.css'
-import App_for10 from "./10_App_ScheduleManagement/App_for10";
+import {BrowserRouter} from "react-router-dom";
+import App_for13 from "./13_ReactRouter_DevSpa/App_for13";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <div>
-        <App_for10 />
-    </div>
-
+    <BrowserRouter>
+        <App_for13 />
+    </BrowserRouter>
 );
