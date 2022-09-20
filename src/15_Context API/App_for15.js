@@ -1,13 +1,13 @@
-import ColorBox from "./Component/ColorBox";
 import {ColorProvider} from "./Context/color";
-import SelectColors from "./Component/SelectColors";
+import SelectColors2 from "./Component/SelectColors2";
+import ColorBox3 from "./Component/ColorBox3";
 
 const App_for15 = () => {
     return(
         <ColorProvider>
             <div>
-                <SelectColors />
-                <ColorBox />
+                <SelectColors2 />
+                <ColorBox3 />
             </div>
         </ColorProvider>
     );
