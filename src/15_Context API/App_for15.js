@@ -1,13 +1,13 @@
 import ColorBox from "./Component/ColorBox";
-import ColorContext from "./Context/color";
+import {ColorProvider} from "./Context/color";
 
 const App_for15 = () => {
     return(
-        <ColorContext.Provider value={{ color: 'red'}}>
+        <ColorProvider>
             <div>
                 <ColorBox />
             </div>
-        </ColorContext.Provider>
+        </ColorProvider>
     );
 };
 
