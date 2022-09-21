@@ -2,8 +2,8 @@ import { startLoading, finishLoading } from "../modules/loading";
 
 export default function createRequestThunk (type, request) {
     // 성공 및 실패 액션 타입을 정의
-    const success = `${type}_SUCCESS`;
-    const failure = `${type}_FAILURE`;
+    const SUCCESS = `${type}_SUCCESS`;
+    const FAILURE = `${type}_FAILURE`;
     return params => async dispatch => {
         dispatch({type});
         dispatch(startLoading(type))
