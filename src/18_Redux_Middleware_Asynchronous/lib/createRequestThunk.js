@@ -6,7 +6,7 @@ export default function createRequestThunk (type, request) {
     const FAILURE = `${type}_FAILURE`;
     return params => async dispatch => {
         dispatch({type});
-        dispatch(startLoading(type))
+        dispatch(startLoading(type));
         try {
             const response = await request(params);
             dispatch({

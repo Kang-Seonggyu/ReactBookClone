@@ -14,8 +14,8 @@ const Sample = ({ loadingPost, loadingUsers, post, users}) => {
             <hr/>
             <section>
                 <h1>사용자 목록</h1>
-                {loading && '로딩중...'}
-                {!loading && users && (
+                {loadingUsers && '로딩중...'}
+                {!loadingUsers && users && (
                     <ul>
                         {users.map(user => (
                             <li key={user.id}>
