@@ -11,6 +11,7 @@ function App() {
     const onClick = () => {
         setVisible(true)
     };
+    // preload 를 사용하여 마우스 올렸을 때 데이터 불러오고 클릭시 데이터를 나타냄.
     const onMouseOver = () => {
         SplitMe.preload();
     }
