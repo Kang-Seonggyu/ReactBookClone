@@ -46,8 +46,21 @@ export const write = async ctx => {
 };
 
 export const list = async ctx => {
+    // qeury는 문자열이기 때문에 숫자로 변환해 주어야 함.
+    // 값이 주어지지 않았다면 1을 기본으로 사용함.
+    const page = parseInt(ctx.query.page || '1', 10);
+
+    if ( page < 1) {
+        ctx.status = 400;
+        return;
+    }
+
     try {
-        const posts = await Post.find().exec();
+        const posts = await Post.find()
+            .sort({ _id : -1 }) // 내림차순으로 정렬
+            .limit(10)          // 10개만 표시
+            .skip((page-1) * 10) // 건너 뛰기. (단위 : 10)
+            .exec();
         ctx.body = posts;
     } catch (e) {
         ctx.throw(500, e);
