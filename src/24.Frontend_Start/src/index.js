@@ -4,11 +4,17 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from '../../../node_modules/react-router-dom/dist/index';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { composeWithDevTools  } from 'redux-devtools-extension';
-import rootReducer from './modules';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer, { rootSaga } from './modules';
+import createSagaMiddleware from 'redux-saga';
 
-const store = createStore(rootReducer, composeWithDevTools());
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+  rootReducer, 
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
+sagaMiddleware.run(rootSaga)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
