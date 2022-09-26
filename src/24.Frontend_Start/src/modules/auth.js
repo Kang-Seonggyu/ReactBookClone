@@ -5,7 +5,7 @@ import createRequestSaga, { createRequestActionTypes  } from "../lib/createReque
 import * as authAPI from '../lib/api/auth';
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
-const INITIALIZE_FORM = 'auth/INITIALIZE_FORM'
+const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 
 const [REGISTER,REGISTER_SUCCESS, REGISTER_FAILURE] = createRequestActionTypes(
     'auth/REGISTER',
@@ -62,30 +62,30 @@ const auth = handleActions(
         produce(state, draft => {
             draft[form][key] = value; // 예 : state.register.username을 바꾼다.
         }),
-        [INITIALIZE_FORM]: (state, { patload : form }) => ({
+        [INITIALIZE_FORM]: (state, { payload : form }) => ({
             ...state,
             [form] : initialState[form],
             authError : null, // 폼 전환 시 회원 인증 에러 초기화
         }),
         // 회원가입 성공
-        [REGISTER_SUCCESS]: (state, { patload : auth }) => ({
+        [REGISTER_SUCCESS]: (state, { payload : auth }) => ({
             ...state,
             authError : null,
             auth,
         }),
         // 회원가입 실패
-        [REGISTER_FAILURE]: (state, { patload : error }) => ({
+        [REGISTER_FAILURE]: (state, { payload : error }) => ({
             ...state,
             authError : error,
         }),
         // 로그인 성공
-        [LOGIN_SUCCESS]: (state, { patload : auth }) => ({
+        [LOGIN_SUCCESS]: (state, { payload : auth }) => ({
             ...state,
             authError : null,
             auth,
         }),
         // 로그인 성공
-        [LOGIN_SUCCESS]: (state, { patload : error }) => ({
+        [LOGIN_FAILURE]: (state, { payload : error }) => ({
             ...state,
             authError : null,
         }),
