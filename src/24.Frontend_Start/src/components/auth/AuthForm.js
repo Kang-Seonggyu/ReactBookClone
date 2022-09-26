@@ -51,6 +51,10 @@ const textMap = {
     register : '회원가입',
 }
 
+const ButtonWithMarginTop = styled(Button)`
+    margin-top: 1rem;
+`;
+
 const AuthForm = ({type, form, onChange, onSubmit}) => {
     const text =textMap[type];
     return (
@@ -82,9 +86,9 @@ const AuthForm = ({type, form, onChange, onSubmit}) => {
                         value={form.passwordConfirm}
                     />
                 )}
-                <Button cyan fullwidth style={{ marginTop : '1 rem' }}>
+                <ButtonWithMarginTop cyan fullwidth>
                     {text}
-                </Button>
+                </ButtonWithMarginTop>
             </form>
             <Footer>
                 {type === 'login' ? (
