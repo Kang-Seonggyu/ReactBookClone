@@ -8,6 +8,7 @@ function ReactCalendar () {
     return (
         <div>
             <Calendar onChange={SetValue} value={value} />
+            .
         </div>
     );
 }
