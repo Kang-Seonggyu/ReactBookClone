@@ -49,11 +49,13 @@ function MomentCalendar () {
 
     return (
         <div className="App">
-
+            <h1>Momnet Calendar</h1>
             <div className="control">
-                <button onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'month')) }} >이전달</button>
+                <button onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'month')) }} > « </button>
+                <button onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'year')) }} > ‹ </button>
                 <span>{today.format('YYYY 년 MM 월')}</span>
-                <button onClick={()=>{ setMoment(getMoment.clone().add(1, 'month')) }} >다음달</button>
+                <button onClick={()=>{ setMoment(getMoment.clone().add(1, 'month')) }} > › </button>
+                <button onClick={()=>{ setMoment(getMoment.clone().add(1, 'year')) }} > » </button>
             </div>
             <table>
                 <tbody>
