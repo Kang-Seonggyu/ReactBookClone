@@ -1,0 +1,39 @@
+.MCalendar {
+    height: 100vh;
+    width: 100vw;
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.MCalendar_control {
+    display: flex;
+    flex-direction: row;
+}
+.MCalendar table {
+    display: flex;
+    width: 50vw;
+    height: 50vh;
+}
+.MCalendar table tbody {
+    display: flex;
+    flex-direction: column;
+}
+
+.MCalendar tr {
+    display: flex;
+    flex-direction: row;
+}
+.MCalendar td {
+    display: flex;
+    border: 1px solid gray;
+    width: 10vw;
+    height: 10vh;
+}
+.MCalendar td span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

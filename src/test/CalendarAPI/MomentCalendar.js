@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import moment from 'moment';
+import "./MomentCalendar.css"
 
 function MomentCalendar () {
     const [getMoment, setMoment]=useState(moment());
@@ -10,7 +11,7 @@ function MomentCalendar () {
     // 이번 달의 마지막 주
     const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
     const testWeek = today.clone().endOf('month')
-    console.log(testWeek)
+    //console.log(testWeek)
 
     const calendarArr=()=>{
 
@@ -23,14 +24,14 @@ function MomentCalendar () {
                         Array(7).fill(0).map((data, index) => {
                             // index : 0~6 반복
                             let days = today.clone().startOf('year').week(week).startOf('week').add(index, 'day'); //d로해도되지만 직관성
-                            console.log(days)
-
+                            let date = `Date-${days.format('YYYYMMDD')}`
+                            ////console.log(date)
 
                             // 오늘 날짜에는 빨간색으로 처리
                             if(moment().format('YYYYMMDD') === days.format('YYYYMMDD')){
                                 return(
-                                    <td key={index} style={{backgroundColor:'red'}} >
-                                        <span>{days.format('D')}</span>
+                                    <td key={index}  style={{backgroundColor:'red'}} >
+                                        <span id={date}>{days.format('D')}</span>
                                     </td>
                                 );
                             }
@@ -38,13 +39,15 @@ function MomentCalendar () {
                             else if(days.format('MM') !== today.format('MM')){
                                 return(
                                     <td key={index} style={{backgroundColor:'gray'}} >
-                                        <span>{days.format('D')}</span>
+                                        <span id={date}>{days.format('D')}</span>
                                     </td>
                                 );
-                            }else{
+                            }
+                            // 이번 달에 속한 날들은 기본 값
+                            else{
                                 return(
                                     <td key={index}  >
-                                        <span>{days.format('D')}</span>
+                                        <span id={date}>{days.format('D')}</span>
                                     </td>
                                 );
                             }
@@ -57,9 +60,9 @@ function MomentCalendar () {
     }
 
     return (
-        <div className="App">
+        <div className="MCalendar">
             <h1>Momnet Calendar</h1>
-            <div className="control">
+            <div className="MCalendar_control">
                 <button onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'year')) }} > « </button>
                 <button onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'month')) }} > ‹ </button>
                 <span>{today.format('YYYY 년 MM 월')}</span>
